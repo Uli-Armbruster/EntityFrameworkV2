@@ -5,7 +5,7 @@ using UAR.Domain.AdventureWorks;
 
 namespace UAR.Persistence.ORM
 {
-    public partial class AdventureWorksContext : DbContext
+    internal class AdventureWorksContext : DbContext
     {
         public AdventureWorksContext()
             : base("name=AdventureWorksContext")

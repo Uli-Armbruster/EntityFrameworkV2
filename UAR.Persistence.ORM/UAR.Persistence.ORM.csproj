@@ -79,7 +79,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Northwind.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ using UAR.Domain.Northwind;
 
 namespace UAR.Persistence.ORM
 {
-    public partial class NorthwindContext : DbContext
+    internal class NorthwindContext : DbContext
     {
         public NorthwindContext()
             : base("name=NorthwindContext")

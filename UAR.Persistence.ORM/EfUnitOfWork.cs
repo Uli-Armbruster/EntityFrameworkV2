@@ -9,7 +9,6 @@ namespace UAR.Persistence.ORM
     internal class EfUnitOfWork : IUnitOfWork
     {
         private IDbContext _wrappedContext; //entspricht der UnitOfWork vom EntityFramework
-        internal int NumberOfDisposes = 0;
         readonly IContextFactory _contextFactory;
 
         public EfUnitOfWork(IContextFactory contextFactory)
@@ -72,10 +71,8 @@ namespace UAR.Persistence.ORM
             if (_wrappedContext == null)
                 return;
 
-            NumberOfDisposes += 1;
             _wrappedContext.Context.Dispose();
             _wrappedContext = null;
-            Debug.WriteLine("context disposed");
         }
     }
 }
