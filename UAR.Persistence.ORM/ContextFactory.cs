@@ -1,12 +1,25 @@
+using System.Data.Entity;
+using System.Linq;
+
+using Castle.Windsor;
+
 using UAR.Persistence.Contracts;
 
 namespace UAR.Persistence.ORM
 {
     internal class ContextFactory : IContextFactory
     {
-        public IDbContext Create()
+        readonly IWindsorContainer _container;
+
+        public ContextFactory(IWindsorContainer container)
         {
-            return new WrappedContext(new AdventureWorksContext());
+            _container = container;
+        }
+
+        public IDbContext Create<TEntity>()
+        {
+            var contextName = typeof(TEntity).Namespace.Split('.').Last() + "Context";
+            return new WrappedContext(_container.Resolve<DbContext>(contextName));
         }
     }
 }

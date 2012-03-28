@@ -25,7 +25,8 @@ namespace UAR.UI.WinForms
             yield return Component.For<IDialogueFactory>().ImplementedBy<DialogueFactory>();
 
             yield return Component.For<Form1>().ImplementedBy<Form1>().LifestyleTransient();
-            yield return Component.For<Dialog1>().ImplementedBy<Dialog1>().LifestyleTransient();
+            yield return Component.For<AW_Dialog>().ImplementedBy<AW_Dialog>().LifestyleTransient();
+            yield return Component.For<NW_Dialog>().ImplementedBy<NW_Dialog>().LifestyleTransient();
 
             yield return Component.For<IBusinessLogic>().ImplementedBy<BusinessLogic>().LifestyleTransient();
 

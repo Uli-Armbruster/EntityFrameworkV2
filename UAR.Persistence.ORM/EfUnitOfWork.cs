@@ -10,10 +10,11 @@ namespace UAR.Persistence.ORM
     {
         private IDbContext _wrappedContext; //entspricht der UnitOfWork vom EntityFramework
         internal int NumberOfDisposes = 0;
+        readonly IContextFactory _contextFactory;
 
-        public EfUnitOfWork(IDbContext dbContext)
+        public EfUnitOfWork(IContextFactory contextFactory)
         {
-            //_contextFactory = contextFactory;
+            _contextFactory = contextFactory;
         }
 
         public TResult ExecuteQuery<TResult, T>(IQuery<TResult, T> query) where T : class
@@ -49,7 +50,7 @@ namespace UAR.Persistence.ORM
         {
             if (_wrappedContext == null)
             {
-                _wrappedContext = new WrappedContext(new AdventureWorksContext());
+                _wrappedContext = _contextFactory.Create<T>();
                 Debug.WriteLine("context created");
             }
 

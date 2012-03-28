@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 using Castle.Facilities.TypedFactory;
@@ -29,18 +30,24 @@ namespace UAR.Persistence.ORM
         private static IEnumerable<IRegistration> Components()
         {
             yield return Component
+                .For<DbContext>()
+                .ImplementedBy<AdventureWorksContext>()
+                .LifestyleTransient()
+                .Named("AdventureWorksContext");
+            yield return Component
+                .For<DbContext>()
+                .ImplementedBy<NorthwindContext>()
+                .LifestyleTransient()
+                .Named("NorthwindContext");
+
+            yield return Component
                 .For<IContextFactory>()
                 .ImplementedBy<ContextFactory>()
                 .LifestyleScoped();
 
             yield return Component
                 .For<IUnitOfWork>()
-                .UsingFactoryMethod((kernel) =>
-                {
-                    var factory = kernel.Resolve<IContextFactory>();
-                    var context = factory.Create();
-                    return new EfUnitOfWork(context);
-                })
+                .ImplementedBy<EfUnitOfWork>()
                 .LifestyleScoped();
         }
     }

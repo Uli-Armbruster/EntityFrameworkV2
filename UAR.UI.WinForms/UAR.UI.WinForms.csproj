@@ -49,12 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic.cs" />
-    <Compile Include="Dialog1.cs">
+    <Compile Include="AW_Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog1.Designer.cs">
-      <DependentUpon>Dialog1.cs</DependentUpon>
+    <Compile Include="AW_Dialog.Designer.cs">
+      <DependentUpon>AW_Dialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogueFactory.cs" />
     <Compile Include="IBusinessLogic.cs" />
     <Compile Include="IDialogueFactory.cs" />
     <Compile Include="Installer.cs" />
@@ -64,13 +65,22 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NW_Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NW_Dialog.Designer.cs">
+      <DependentUpon>NW_Dialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dialog1.resx">
-      <DependentUpon>Dialog1.cs</DependentUpon>
+    <EmbeddedResource Include="AW_Dialog.resx">
+      <DependentUpon>AW_Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NW_Dialog.resx">
+      <DependentUpon>NW_Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +107,10 @@
     <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
       <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
       <Name>UAR.Domain.AdventureWorks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UAR.Domain.Northwind\UAR.Domain.Northwind.csproj">
+      <Project>{F1340169-6894-49AA-81C6-CEF4D9087805}</Project>
+      <Name>UAR.Domain.Northwind</Name>
     </ProjectReference>
     <ProjectReference Include="..\UAR.Persistence.Contracts\UAR.Persistence.Contracts.csproj">
       <Project>{1EFB2FB2-84D4-4F06-A0CE-F8056ECADE1F}</Project>

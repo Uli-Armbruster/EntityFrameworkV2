@@ -46,6 +46,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="EfUnitOfWork.cs" />
     <Compile Include="Installer.cs" />
+    <Compile Include="Northwind.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Northwind.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContextFactory.cs" />
     <Compile Include="WrappedContext.cs" />
@@ -68,6 +75,11 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Northwind.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Northwind.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +89,10 @@
     <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
       <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
       <Name>UAR.Domain.AdventureWorks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UAR.Domain.Northwind\UAR.Domain.Northwind.csproj">
+      <Project>{F1340169-6894-49AA-81C6-CEF4D9087805}</Project>
+      <Name>UAR.Domain.Northwind</Name>
     </ProjectReference>
     <ProjectReference Include="..\UAR.Persistence.Contracts\UAR.Persistence.Contracts.csproj">
       <Project>{1EFB2FB2-84D4-4F06-A0CE-F8056ECADE1F}</Project>
