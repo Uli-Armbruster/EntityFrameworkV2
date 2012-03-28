@@ -31,43 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40-client\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs">
-      <DependentUpon>AdventureWorksEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AddressType.cs">
-      <DependentUpon>AdventureWorksEntities.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AdventureWorksContext.cs" />
     <Compile Include="AdventureWorksDbModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorksDbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="AdventureWorksEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdventureWorksEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Contact.cs">
-      <DependentUpon>AdventureWorksEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,19 +64,16 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AdventureWorksEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AdventureWorksEntities.Context.cs</LastGenOutput>
-    </None>
-    <None Include="AdventureWorksEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AdventureWorksEntities.cs</LastGenOutput>
-    </None>
-    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
+      <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
+      <Name>UAR.Domain.AdventureWorks</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

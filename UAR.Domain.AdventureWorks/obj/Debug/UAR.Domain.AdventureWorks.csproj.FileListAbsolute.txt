@@ -1,0 +1,5 @@
+G:\Private\EntityFrameworkV2\UAR.Domain.AdventureWorks\bin\Debug\UAR.Domain.AdventureWorks.dll
+G:\Private\EntityFrameworkV2\UAR.Domain.AdventureWorks\bin\Debug\UAR.Domain.AdventureWorks.pdb
+G:\Private\EntityFrameworkV2\UAR.Domain.AdventureWorks\obj\Debug\ResolveAssemblyReference.cache
+G:\Private\EntityFrameworkV2\UAR.Domain.AdventureWorks\obj\Debug\UAR.Domain.AdventureWorks.dll
+G:\Private\EntityFrameworkV2\UAR.Domain.AdventureWorks\obj\Debug\UAR.Domain.AdventureWorks.pdb

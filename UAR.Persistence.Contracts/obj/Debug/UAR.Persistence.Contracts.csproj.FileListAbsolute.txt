@@ -1,0 +1,5 @@
+G:\Private\EntityFrameworkV2\UAR.Persistence.Contracts\bin\Debug\UAR.Persistence.Contracts.dll
+G:\Private\EntityFrameworkV2\UAR.Persistence.Contracts\bin\Debug\UAR.Persistence.Contracts.pdb
+G:\Private\EntityFrameworkV2\UAR.Persistence.Contracts\obj\Debug\ResolveAssemblyReference.cache
+G:\Private\EntityFrameworkV2\UAR.Persistence.Contracts\obj\Debug\UAR.Persistence.Contracts.dll
+G:\Private\EntityFrameworkV2\UAR.Persistence.Contracts\obj\Debug\UAR.Persistence.Contracts.pdb

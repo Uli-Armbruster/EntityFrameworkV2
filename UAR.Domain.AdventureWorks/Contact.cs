@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace UAR.Persistence.ORM
+namespace UAR.Domain.AdventureWorks
 {
     public partial class Contact
     {
