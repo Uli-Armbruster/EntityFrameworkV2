@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAR.Domain.AdventureWorks",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAR.Domain.Northwind", "UAR.Domain.Northwind\UAR.Domain.Northwind.csproj", "{F1340169-6894-49AA-81C6-CEF4D9087805}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAR.UI.WPF", "UAR.UI.WPF\UAR.UI.WPF.csproj", "{81B19CA1-E9A2-4D05-B8CD-940D8300713D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{F1340169-6894-49AA-81C6-CEF4D9087805}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F1340169-6894-49AA-81C6-CEF4D9087805}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F1340169-6894-49AA-81C6-CEF4D9087805}.Release|x86.ActiveCfg = Release|Any CPU
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Debug|x86.ActiveCfg = Debug|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Debug|x86.Build.0 = Debug|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Release|Any CPU.ActiveCfg = Release|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Release|x86.ActiveCfg = Release|x86
+		{81B19CA1-E9A2-4D05-B8CD-940D8300713D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace UAR.UI.WinForms
+namespace UAR.UI.WPF
 {
     public class Installer : IWindsorInstaller
     {
@@ -16,20 +16,16 @@ namespace UAR.UI.WinForms
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Components().ToArray());
-            //container.Register(Component.For<IWindsorContainer>().Instance(container));
+            container.Register(Component.For<IWindsorContainer>().Instance(container));
         }
 
         private static IEnumerable<IRegistration> Components()
         {
-            
-            yield return Component.For<IDialogFactory>().ImplementedBy<DialogFactory>();
 
-            yield return Component.For<Form1>().ImplementedBy<Form1>().LifestyleTransient();
-            yield return Component.For<AW_Dialog>().ImplementedBy<AW_Dialog>().LifestyleTransient();
-            yield return Component.For<NW_Dialog>().ImplementedBy<NW_Dialog>().LifestyleTransient();
-
-            yield return Component.For<IBusinessLogic>().ImplementedBy<BusinessLogic>().LifestyleTransient();
-
+            yield return Component.For<IViewModelFactory>().ImplementedBy<ViewModelFactory>();
+            yield return Component.For<MainWindow>().ImplementedBy<MainWindow>().LifestyleTransient();
+            yield return Component.For<AdventureWorksVM>().ImplementedBy<AdventureWorksVM>().LifestyleTransient();
+            yield return Component.For<NorthwindVM>().ImplementedBy<NorthwindVM>().LifestyleTransient();
         }
     }
 }
