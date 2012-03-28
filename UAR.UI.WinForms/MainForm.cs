@@ -10,10 +10,12 @@ namespace UAR.UI.WinForms
     public partial class Form1 : Form
     {
         readonly IUnitOfWork _unitOfWork;
+        readonly IDialogueFactory _dialogueFactory;
 
-        public Form1(IUnitOfWork unitOfWork)
+        public Form1(IUnitOfWork unitOfWork, IDialogueFactory dialogueFactory)
         {
             _unitOfWork = unitOfWork;
+            _dialogueFactory = dialogueFactory;
             InitializeComponent();
         }
 
@@ -21,6 +23,11 @@ namespace UAR.UI.WinForms
         {
                 var contact = (from c in _unitOfWork.Entities<Contact>() select c).First();
                 MessageBox.Show(contact.EmailAddress);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _dialogueFactory.Create<Dialog1>().Show();
         }
     }
 }
