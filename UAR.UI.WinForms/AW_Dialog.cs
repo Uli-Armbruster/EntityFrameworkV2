@@ -15,6 +15,7 @@ namespace UAR.UI.WinForms
         public AW_Dialog(IUnitOfWork unitOfWork, IBusinessLogic businessLogic)
         {
             _unitOfWork = unitOfWork;
+
             _businessLogic = businessLogic;
             InitializeComponent();
         }
