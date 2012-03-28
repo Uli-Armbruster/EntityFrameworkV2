@@ -2,26 +2,25 @@
 using System.Linq;
 using System.Windows.Forms;
 
-using UAR.Persistence.ORM;
+using UAR.Domain.AdventureWorks;
+using UAR.Persistence.Contracts;
 
 namespace UAR.UI.WinForms
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        readonly IUnitOfWork _unitOfWork;
+
+        public Form1(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            using (var context = new AdventureWorksContext())
-            {
-                var contact = (from c in context.Contact
-                         select c).First();
-
+                var contact = (from c in _unitOfWork.Entities<Contact>() select c).First();
                 MessageBox.Show(contact.EmailAddress);
-            }
         }
     }
 }

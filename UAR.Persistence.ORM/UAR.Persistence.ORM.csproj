@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Binaries\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Binaries\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -55,7 +55,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorksDbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EfUnitOfWork.cs" />
+    <Compile Include="Installer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContextFactory.cs" />
+    <Compile Include="WrappedContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AdventureWorksDbModel.edmx">
@@ -73,6 +77,10 @@
     <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
       <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
       <Name>UAR.Domain.AdventureWorks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UAR.Persistence.Contracts\UAR.Persistence.Contracts.csproj">
+      <Project>{1EFB2FB2-84D4-4F06-A0CE-F8056ECADE1F}</Project>
+      <Name>UAR.Persistence.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
