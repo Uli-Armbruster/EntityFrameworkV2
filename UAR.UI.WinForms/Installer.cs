@@ -22,7 +22,7 @@ namespace UAR.UI.WinForms
         private static IEnumerable<IRegistration> Components()
         {
             
-            yield return Component.For<IDialogueFactory>().ImplementedBy<DialogueFactory>();
+            yield return Component.For<IDialogFactory>().ImplementedBy<DialogFactory>();
 
             yield return Component.For<Form1>().ImplementedBy<Form1>().LifestyleTransient();
             yield return Component.For<AW_Dialog>().ImplementedBy<AW_Dialog>().LifestyleTransient();

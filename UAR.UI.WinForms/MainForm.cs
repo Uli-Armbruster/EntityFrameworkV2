@@ -10,22 +10,22 @@ namespace UAR.UI.WinForms
     public partial class Form1 : Form
     {
         readonly IUnitOfWork _unitOfWork;
-        readonly IDialogueFactory _dialogueFactory;
+        readonly IDialogFactory _dialogFactory;
 
-        public Form1(IDialogueFactory dialogueFactory)
+        public Form1(IDialogFactory dialogFactory)
         {
-            _dialogueFactory = dialogueFactory;
+            _dialogFactory = dialogFactory;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _dialogueFactory.Create<AW_Dialog>().Show();
+            _dialogFactory.Create<AW_Dialog>().Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _dialogueFactory.Create<NW_Dialog>().Show();
+            _dialogFactory.Create<NW_Dialog>().Show();
         }
     }
 }

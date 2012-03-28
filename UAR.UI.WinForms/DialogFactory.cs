@@ -5,11 +5,11 @@ using Castle.Windsor;
 
 namespace UAR.UI.WinForms
 {
-    class DialogueFactory : IDialogueFactory
+    class DialogFactory : IDialogFactory
     {
         readonly IWindsorContainer _container;
 
-        public DialogueFactory(IWindsorContainer container)
+        public DialogFactory(IWindsorContainer container)
         {
             _container = container;
         }
@@ -18,7 +18,10 @@ namespace UAR.UI.WinForms
         {
             var scope = _container.BeginScope();
 
-            return _container.Resolve<T>(new {scope});
+            var result = _container.Resolve<T>();
+            result.Closed += (s, a) => scope.Dispose();
+
+            return result;
         }
     }
 }

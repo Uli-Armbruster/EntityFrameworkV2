@@ -10,13 +10,11 @@ namespace UAR.UI.WinForms
     public partial class AW_Dialog : Form
     {
         readonly IBusinessLogic _businessLogic;
-        readonly IDisposable _scope;
         readonly IUnitOfWork _unitOfWork;
 
-        public AW_Dialog(IUnitOfWork unitOfWork, IDisposable scope, IBusinessLogic businessLogic)
+        public AW_Dialog(IUnitOfWork unitOfWork, IBusinessLogic businessLogic)
         {
             _unitOfWork = unitOfWork;
-            _scope = scope;
             _businessLogic = businessLogic;
             InitializeComponent();
         }
@@ -27,12 +25,6 @@ namespace UAR.UI.WinForms
             var address = (from a in _unitOfWork.Entities<Address>()
                                select a).First();
             label1.Text = string.Format("BI Logic: {0}, Dialog Logic: {1}", name, address.City);
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            _scope.Dispose();
-            base.OnClosed(e);
         }
     }
 }

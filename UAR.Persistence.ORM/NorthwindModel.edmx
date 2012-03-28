@@ -61,11 +61,11 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NorthwindDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="NorthwindDbModel.Categories" />
-          <EntitySet Name="Employees" EntityType="NorthwindDbModel.Employees" />
-          <AssociationSet Name="FK_Employees_Employees" Association="NorthwindDbModel.FK_Employees_Employees">
+      <Schema Namespace="NorthwindModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NorthwindContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="NorthwindModel.Categories" />
+          <EntitySet Name="Employees" EntityType="NorthwindModel.Employees" />
+          <AssociationSet Name="FK_Employees_Employees" Association="NorthwindModel.FK_Employees_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Employees1" EntitySet="Employees" />
           </AssociationSet>
@@ -101,12 +101,12 @@
           <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ReportsTo" Type="Int32" />
           <Property Name="PhotoPath" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Employees1" Relationship="NorthwindDbModel.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
-          <NavigationProperty Name="Employees2" Relationship="NorthwindDbModel.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+          <NavigationProperty Name="Employees1" Relationship="NorthwindModel.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+          <NavigationProperty Name="Employees2" Relationship="NorthwindModel.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
         </EntityType>
         <Association Name="FK_Employees_Employees">
-          <End Role="Employees" Type="NorthwindDbModel.Employees" Multiplicity="0..1" />
-          <End Role="Employees1" Type="NorthwindDbModel.Employees" Multiplicity="*" />
+          <End Role="Employees" Type="NorthwindModel.Employees" Multiplicity="0..1" />
+          <End Role="Employees1" Type="NorthwindModel.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
               <PropertyRef Name="EmployeeID" />
@@ -121,14 +121,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NorthwindDbModelStoreContainer" CdmEntityContainer="NorthwindEntities">
-          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="NorthwindDbModel.Categories"><MappingFragment StoreEntitySet="Categories">
+        <EntityContainerMapping StorageEntityContainer="NorthwindDbModelStoreContainer" CdmEntityContainer="NorthwindContext">
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="NorthwindModel.Categories"><MappingFragment StoreEntitySet="Categories">
             <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
             <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Picture" ColumnName="Picture" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Employees"><EntityTypeMapping TypeName="NorthwindDbModel.Employees"><MappingFragment StoreEntitySet="Employees">
+          <EntitySetMapping Name="Employees"><EntityTypeMapping TypeName="NorthwindModel.Employees"><MappingFragment StoreEntitySet="Employees">
             <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
             <ScalarProperty Name="LastName" ColumnName="LastName" />
             <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -170,9 +170,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Northwind">
-        <EntityTypeShape EntityType="NorthwindDbModel.Categories" Width="1.5" PointX="2.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
-        <EntityTypeShape EntityType="NorthwindDbModel.Employees" Width="1.5" PointX="0.75" PointY="0.75" Height="4.8648079427083326" IsExpanded="true" />
-        <AssociationConnector Association="NorthwindDbModel.FK_Employees_Employees" ManuallyRouted="false">
+        <EntityTypeShape EntityType="NorthwindModel.Categories" Width="1.5" PointX="2.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.Employees" Width="1.5" PointX="0.75" PointY="0.75" Height="4.8648079427083326" IsExpanded="true" />
+        <AssociationConnector Association="NorthwindModel.FK_Employees_Employees" ManuallyRouted="false">
           <ConnectorPoint PointX="1.2819230769230767" PointY="5.6148079427083326" />
           <ConnectorPoint PointX="1.2819230769230767" PointY="5.8648079427083326" />
           <ConnectorPoint PointX="1.7284615384615383" PointY="5.8648079427083326" />

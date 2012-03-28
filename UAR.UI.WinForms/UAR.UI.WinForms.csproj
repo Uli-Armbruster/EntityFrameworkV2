@@ -55,9 +55,9 @@
     <Compile Include="AW_Dialog.Designer.cs">
       <DependentUpon>AW_Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogueFactory.cs" />
+    <Compile Include="DialogFactory.cs" />
     <Compile Include="IBusinessLogic.cs" />
-    <Compile Include="IDialogueFactory.cs" />
+    <Compile Include="IDialogFactory.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

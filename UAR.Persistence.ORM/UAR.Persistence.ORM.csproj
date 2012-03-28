@@ -51,17 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdventureWorksContext.cs" />
-    <Compile Include="AdventureWorksDbModel.Designer.cs">
+    <Compile Include="AdventureWorksModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorksDbModel.edmx</DependentUpon>
+      <DependentUpon>AdventureWorksModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="EfUnitOfWork.cs" />
     <Compile Include="Installer.cs" />
-    <Compile Include="Northwind.Designer.cs">
+    <Compile Include="NorthwindModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Northwind.edmx</DependentUpon>
+      <DependentUpon>NorthwindModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="NorthwindContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,15 +69,15 @@
     <Compile Include="WrappedContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AdventureWorksDbModel.edmx">
+    <EntityDeploy Include="AdventureWorksModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdventureWorksDbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AdventureWorksModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Northwind.edmx">
+    <EntityDeploy Include="NorthwindModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Northwind.Designer.cs</LastGenOutput>
+      <LastGenOutput>NorthwindModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
   </ItemGroup>

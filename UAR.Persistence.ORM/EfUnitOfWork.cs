@@ -73,6 +73,8 @@ namespace UAR.Persistence.ORM
 
             _wrappedContext.Context.Dispose();
             _wrappedContext = null;
+
+            Debug.WriteLine("context disposed");
         }
     }
 }
