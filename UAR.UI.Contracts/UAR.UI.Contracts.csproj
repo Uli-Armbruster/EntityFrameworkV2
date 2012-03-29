@@ -38,6 +38,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAmNotTestable.cs" />
     <Compile Include="IAmViewModel.cs" />
     <Compile Include="IDialogFactory.cs" />
     <Compile Include="IViewModelFactory.cs" />

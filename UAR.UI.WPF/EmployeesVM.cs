@@ -1,6 +1,5 @@
 using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 
 using UAR.Domain.Northwind;
@@ -56,9 +55,7 @@ namespace UAR.UI.WPF
                 HecoEmployees.Clear();
 
             foreach (var employee in employees)
-            {
                 HecoEmployees.Add(_viewModelFactory.Create<EmployeeDetailVM>(new {employee}));
-            }
         }
 
 
@@ -71,6 +68,6 @@ namespace UAR.UI.WPF
             _scope.Dispose();
         }
 
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

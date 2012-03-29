@@ -6,7 +6,7 @@ using UAR.UI.Contracts;
 
 namespace UAR.UI.WPF
 {
-    public class EmployeeDetailVM : IAmViewModel
+    public class EmployeeDetailVM : IAmViewModel, IAmNotTestable
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;
