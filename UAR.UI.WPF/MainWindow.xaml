@@ -24,6 +24,7 @@
       <StackPanel>
         <TextBlock Text="{Binding Path=Name}" Margin="4" />
         <TextBlock Text="{Binding Path=Phone}" Margin="4" />
+        <TextBlock Text="{Binding Path=Country}" Margin="4" />
       </StackPanel>
     </DataTemplate>
   </Window.Resources>

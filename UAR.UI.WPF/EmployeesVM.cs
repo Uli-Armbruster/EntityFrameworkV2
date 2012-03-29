@@ -38,7 +38,7 @@ namespace UAR.UI.WPF
             _unitOfWork = unitOfWork;
             _scope = scope;
             _viewModelFactory = viewModelFactory;
-            HecoEmployees = new ObservableCollection<EmployeeDetailVM>();
+
             LoadEmployees();
         }
 
@@ -49,6 +49,11 @@ namespace UAR.UI.WPF
                 where e.EmployeeID < 10
                 select e
                 ).ToList();
+
+            if (HecoEmployees == null)
+                HecoEmployees = new ObservableCollection<EmployeeDetailVM>();
+            else
+                HecoEmployees.Clear();
 
             foreach (var employee in employees)
             {

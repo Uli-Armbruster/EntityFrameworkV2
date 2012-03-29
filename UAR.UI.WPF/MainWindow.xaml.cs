@@ -9,7 +9,7 @@ namespace UAR.UI.WPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged, IAmViewModel
+    public partial class MainWindow : Window, IAmViewModel
     {
         readonly IViewModelFactory _viewModelFactory;
 
@@ -39,7 +39,7 @@ namespace UAR.UI.WPF
         private void Button_Click_Northwind(object sender, RoutedEventArgs e)
         {
             if (EmployeesViewModel == null)
-                EmployeesViewModel = _viewModelFactory.Create<EmployeesVM>();
+                EmployeesViewModel = _viewModelFactory.CreateScoped<EmployeesVM>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
