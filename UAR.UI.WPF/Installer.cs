@@ -24,8 +24,7 @@ namespace UAR.UI.WPF
 
             yield return Component.For<IViewModelFactory>().ImplementedBy<ViewModelFactory>();
             yield return Component.For<MainWindow>().ImplementedBy<MainWindow>().LifestyleTransient();
-            yield return Component.For<AdventureWorksVM>().ImplementedBy<AdventureWorksVM>().LifestyleTransient();
-            yield return Component.For<NorthwindVM>().ImplementedBy<NorthwindVM>().LifestyleTransient();
+            yield return Component.For<EmployeesVM>().ImplementedBy<EmployeesVM>().LifestyleTransient();
         }
     }
 }

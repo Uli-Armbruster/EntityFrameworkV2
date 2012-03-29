@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-
 using UAR.Domain.Northwind;
 
 namespace UAR.Persistence.ORM
@@ -17,7 +16,8 @@ namespace UAR.Persistence.ORM
             throw new UnintentionalCodeFirstException();
         }
 
-        public DbSet<Categories> Categories { get; set; }
-        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

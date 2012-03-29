@@ -11,35 +11,21 @@ namespace UAR.UI.WPF
     {
         readonly IViewModelFactory _viewModelFactory;
 
-        NorthwindVM _northwindViewModel;
-        public NorthwindVM NorthwindViewModel
+        EmployeesVM _employeesViewModel;
+        public EmployeesVM EmployeesViewModel
         {
             get
             {
-                return _northwindViewModel;
+                return _employeesViewModel;
             }
             set
             {
-                _northwindViewModel = value;
+                _employeesViewModel = value;
                 if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("NorthwindViewModel"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("EmployeesViewModel"));
             }
         }
 
-        AdventureWorksVM _adventureWorksViewModel;
-        public AdventureWorksVM AdventureWorksViewModel
-        {
-            get
-            {
-                return _adventureWorksViewModel;
-            }
-            set
-            {
-                _adventureWorksViewModel = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("AdventureWorksViewModel"));
-            }
-        }
 
         public MainWindow(IViewModelFactory viewModelFactory)
         {
@@ -51,34 +37,18 @@ namespace UAR.UI.WPF
 
         private void Button_Click_Northwind(object sender, RoutedEventArgs e)
         {
-            if (NorthwindViewModel == null)
-                NorthwindViewModel = _viewModelFactory.Create<NorthwindVM>();
-        }
-
-        void Button_Click_AdventureWorks(object sender, RoutedEventArgs e)
-        {
-            if (AdventureWorksViewModel == null)
-                AdventureWorksViewModel = _viewModelFactory.Create<AdventureWorksVM>();
+            if (EmployeesViewModel == null)
+                EmployeesViewModel = _viewModelFactory.Create<EmployeesVM>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (NorthwindViewModel == null)
+            if (EmployeesViewModel == null)
                 return;
 
-            NorthwindViewModel.Dispose();
-            NorthwindViewModel = null;
+            EmployeesViewModel.Dispose();
+            EmployeesViewModel = null;
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            if (AdventureWorksViewModel == null)
-                return;
-
-            AdventureWorksViewModel.Dispose();
-            AdventureWorksViewModel = null;
-        }
-
 
     }
 }

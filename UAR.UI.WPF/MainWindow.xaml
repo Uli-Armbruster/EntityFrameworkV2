@@ -5,18 +5,14 @@
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type local:NorthwindVM}">
-            <TextBlock Text="{Binding Path=Text}"></TextBlock>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type local:AdventureWorksVM}">
-            <TextBlock Text="{Binding Path=Text}"></TextBlock>
+        <DataTemplate DataType="{x:Type local:EmployeesVM}">
+            <ItemsControl ItemsSource="{Binding Path=HecoEmployees}"></ItemsControl>
         </DataTemplate>
     </Window.Resources>
     <Grid>
         <DockPanel>
             <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
                 <Button Click="Button_Click_Northwind">Northwind</Button>
-                <Button Click="Button_Click_AdventureWorks">AdventureWorks</Button>
             </StackPanel>
             <Grid>
                 <Grid.RowDefinitions>
@@ -24,12 +20,8 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Row="0">
-                    <Button Width="100" HorizontalAlignment="Right" DockPanel.Dock="Top" Click="Button_Click_1">Close</Button>
-                    <ContentControl Content="{Binding Path=NorthwindViewModel}"></ContentControl>
-                </DockPanel>
-                <DockPanel Grid.Row="1">
-                    <Button Width="100" HorizontalAlignment="Right" DockPanel.Dock="Top" Click="Button_Click_2">Close</Button>
-                    <ContentControl Content="{Binding Path=AdventureWorksViewModel}"></ContentControl>
+                    <ContentControl DockPanel.Dock="Left" Width="300" Content="{Binding Path=EmployeesViewModel}"></ContentControl>
+                    <ContentControl Content="{Binding Path=EmployeeViewModel}"></ContentControl>
                 </DockPanel>
             </Grid>
         </DockPanel>

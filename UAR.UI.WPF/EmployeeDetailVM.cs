@@ -1,27 +1,28 @@
 using System;
-using System.Linq;
 
 using UAR.Domain.Northwind;
 using UAR.Persistence.Contracts;
 
 namespace UAR.UI.WPF
 {
-    public class NorthwindVM : IDisposable
+    public class EmployeeDetailVM : IDisposable
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;
-        public string Text { get; set; }
+        Employee _employee;
+        public string Name { get; set; }
 
-        public NorthwindVM(IUnitOfWork unitOfWork, IDisposable scope)
+        public EmployeeDetailVM(IUnitOfWork unitOfWork, IDisposable scope, Employee employee)
         {
             _unitOfWork = unitOfWork;
             _scope = scope;
-            LoadText();
+            _employee = employee;
         }
 
-        void LoadText()
+        public EmployeeDetailVM Initialize(Employee employee)
         {
-            Text = string.Format("Firstname of first employee: {0}", _unitOfWork.Entities<Employees>().First().FirstName);
+            _employee = employee;
+            return this;
         }
 
         /// <summary>

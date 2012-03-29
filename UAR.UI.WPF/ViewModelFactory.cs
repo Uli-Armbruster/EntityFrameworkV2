@@ -17,7 +17,7 @@ namespace UAR.UI.WPF
         public T Create<T>() where T : class, IDisposable
         {
             var scope = _container.BeginScope();
-            return _container.Resolve<T>(new { scope});
+            return _container.Resolve<T>(new {scope});
         }
     }
 }

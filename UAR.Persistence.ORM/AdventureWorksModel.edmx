@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AdventureWorksModelStoreContainer">
           <EntitySet Name="Address" EntityType="AdventureWorksModel.Store.Address" store:Type="Tables" Schema="Person" />
           <EntitySet Name="AddressType" EntityType="AdventureWorksModel.Store.AddressType" store:Type="Tables" Schema="Person" />
@@ -61,15 +61,16 @@
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="AdventureWorksContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Address" EntityType="AdventureWorksModel.Address" />
-          <EntitySet Name="AddressType" EntityType="AdventureWorksModel.AddressType" />
-          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Contact" />
-          <EntitySet Name="ContactType" EntityType="AdventureWorksModel.ContactType" />
+          <EntitySet Name="Addresses" EntityType="AdventureWorksModel.Address" />
+          <EntitySet Name="AddressTypes" EntityType="AdventureWorksModel.AddressType" />
+          <EntitySet Name="Contacts" EntityType="AdventureWorksModel.Contact" />
+          <EntitySet Name="ContactTypes" EntityType="AdventureWorksModel.ContactType" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -117,9 +118,9 @@
           <Key>
             <PropertyRef Name="ContactTypeID" />
           </Key>
-          <Property Type="Int32" Name="ContactTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Name="ContactTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -127,7 +128,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksContext">
-          <EntitySetMapping Name="Address"><EntityTypeMapping TypeName="AdventureWorksModel.Address"><MappingFragment StoreEntitySet="Address">
+          <EntitySetMapping Name="Addresses"><EntityTypeMapping TypeName="AdventureWorksModel.Address"><MappingFragment StoreEntitySet="Address">
             <ScalarProperty Name="AddressID" ColumnName="AddressID" />
             <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
             <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
@@ -137,13 +138,13 @@
             <ScalarProperty Name="rowguid" ColumnName="rowguid" />
             <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="AddressType"><EntityTypeMapping TypeName="AdventureWorksModel.AddressType"><MappingFragment StoreEntitySet="AddressType">
+          <EntitySetMapping Name="AddressTypes"><EntityTypeMapping TypeName="AdventureWorksModel.AddressType"><MappingFragment StoreEntitySet="AddressType">
             <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="rowguid" ColumnName="rowguid" />
             <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Contact"><EntityTypeMapping TypeName="AdventureWorksModel.Contact"><MappingFragment StoreEntitySet="Contact">
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="AdventureWorksModel.Contact"><MappingFragment StoreEntitySet="Contact">
             <ScalarProperty Name="ContactID" ColumnName="ContactID" />
             <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
             <ScalarProperty Name="Title" ColumnName="Title" />
@@ -160,15 +161,11 @@
             <ScalarProperty Name="rowguid" ColumnName="rowguid" />
             <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="ContactType">
-            <EntityTypeMapping TypeName="AdventureWorksModel.ContactType">
-              <MappingFragment StoreEntitySet="ContactType">
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ContactTypeID" ColumnName="ContactTypeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <EntitySetMapping Name="ContactTypes"><EntityTypeMapping TypeName="AdventureWorksModel.ContactType"><MappingFragment StoreEntitySet="ContactType">
+            <ScalarProperty Name="ContactTypeID" ColumnName="ContactTypeID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -190,11 +187,11 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AdventureWorksDbModel">
+      <Diagram Name="AdventureWorksModel">
         <EntityTypeShape EntityType="AdventureWorksModel.Address" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
         <EntityTypeShape EntityType="AdventureWorksModel.AddressType" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksModel.Contact" Width="1.5" PointX="5.125" PointY="0.5" Height="3.9033007812499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksModel.ContactType" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="AdventureWorksModel.Contact" Width="1.5" PointX="2.75" PointY="3.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksModel.ContactType" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

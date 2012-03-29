@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace UAR.Domain.Northwind
 {
-    public partial class Categories
+    public partial class Category
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }

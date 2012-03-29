@@ -19,7 +19,7 @@ namespace UAR.UI.WinForms
 
         void NW_Dialog_Load(object sender, EventArgs e)
         {
-            label1.Text = _unitOfWork.Entities<Employees>().First().FirstName;
+            label1.Text = _unitOfWork.Entities<Employee>().First().FirstName;
         }
     }
 }

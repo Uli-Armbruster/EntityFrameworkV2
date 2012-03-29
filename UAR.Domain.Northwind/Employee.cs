@@ -12,11 +12,11 @@ using System.Collections.Generic;
 
 namespace UAR.Domain.Northwind
 {
-    public partial class Employees
+    public partial class Employee
     {
-        public Employees()
+        public Employee()
         {
-            this.Employees1 = new HashSet<Employees>();
+            this.Employees1 = new HashSet<Employee>();
         }
     
         public int EmployeeID { get; set; }
@@ -38,8 +38,8 @@ namespace UAR.Domain.Northwind
         public Nullable<int> ReportsTo { get; set; }
         public string PhotoPath { get; set; }
     
-        public virtual ICollection<Employees> Employees1 { get; set; }
-        public virtual Employees Employees2 { get; set; }
+        public virtual ICollection<Employee> Employees1 { get; set; }
+        public virtual Employee Employees2 { get; set; }
     }
     
 }
