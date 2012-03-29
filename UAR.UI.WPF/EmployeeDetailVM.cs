@@ -10,15 +10,17 @@ namespace UAR.UI.WPF
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;
-        Employee _employee;
+
         public string Name { get; set; }
+        public string Phone { get; set; }
 
         public EmployeeDetailVM(IUnitOfWork unitOfWork, IDisposable scope, Employee employee)
         {
             _unitOfWork = unitOfWork;
             _scope = scope;
-            _employee = employee;
+
             Name = string.Format("{0} {1}", employee.FirstName, employee.LastName);
+            Phone = employee.HomePhone;
         }
 
         /// <summary>
@@ -29,5 +31,7 @@ namespace UAR.UI.WPF
         {
             _scope.Dispose();
         }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     }
 }

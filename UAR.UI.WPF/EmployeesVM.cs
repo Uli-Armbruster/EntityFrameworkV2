@@ -6,6 +6,7 @@ using System.Linq;
 using UAR.Domain.Northwind;
 using UAR.Persistence.Contracts;
 using UAR.UI.Contracts;
+using System.ComponentModel;
 
 namespace UAR.UI.WPF
 {
@@ -16,6 +17,21 @@ namespace UAR.UI.WPF
         readonly IViewModelFactory _viewModelFactory;
 
         public ObservableCollection<EmployeeDetailVM> HecoEmployees { get; set; }
+
+        EmployeeDetailVM _selectedItem;
+        public EmployeeDetailVM SelectedItem
+        {
+            get
+            {
+                return _selectedItem;
+            }
+            set
+            {
+                _selectedItem = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
+            }
+        }
 
         public EmployeesVM(IUnitOfWork unitOfWork, IDisposable scope, IViewModelFactory viewModelFactory)
         {
@@ -49,5 +65,7 @@ namespace UAR.UI.WPF
         {
             _scope.Dispose();
         }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     }
 }

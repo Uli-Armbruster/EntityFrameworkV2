@@ -28,7 +28,6 @@ namespace UAR.UI.WPF
             }
         }
 
-
         public MainWindow(IViewModelFactory viewModelFactory)
         {
             _viewModelFactory = viewModelFactory;

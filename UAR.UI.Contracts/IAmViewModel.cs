@@ -1,7 +1,8 @@
-﻿namespace UAR.UI.Contracts
+﻿using System.ComponentModel;
+
+namespace UAR.UI.Contracts
 {
-    public interface IAmViewModel
+    public interface IAmViewModel : INotifyPropertyChanged
     {
-         
     }
 }
