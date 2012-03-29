@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows;
 
+using UAR.UI.Contracts;
+
 namespace UAR.UI.WPF
 {
     /// <summary>

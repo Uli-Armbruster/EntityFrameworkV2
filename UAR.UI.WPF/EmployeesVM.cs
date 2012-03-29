@@ -1,14 +1,15 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 
 using UAR.Domain.Northwind;
 using UAR.Persistence.Contracts;
+using UAR.UI.Contracts;
 
 namespace UAR.UI.WPF
 {
-    public class EmployeesVM : IDisposable
+    public class EmployeesVM : IDisposable, IAmViewModel
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;
@@ -32,6 +33,8 @@ namespace UAR.UI.WPF
                 where e.EmployeeID < 10
                 select _viewModelFactory.Create<EmployeeDetailVM>().Initialize(e)
                 ).ToList();
+
+            Debug.WriteLine(hecoEmployees.Count);
         }
 
 

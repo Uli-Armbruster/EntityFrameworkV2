@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using Castle.MicroKernel.Lifestyle;
 using Castle.Windsor;
 
+using UAR.UI.Contracts;
+
 namespace UAR.UI.WinForms
 {
     class DialogFactory : IDialogFactory

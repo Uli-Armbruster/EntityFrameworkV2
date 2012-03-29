@@ -1,9 +1,10 @@
 using System.Linq;
 
+using UAR.BusinessLogic.Contracts;
 using UAR.Domain.AdventureWorks;
 using UAR.Persistence.Contracts;
 
-namespace UAR.UI.WinForms
+namespace UAR.BusinessLogic
 {
     class BusinessLogic : IBusinessLogic
     {

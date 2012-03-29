@@ -2,10 +2,11 @@ using System;
 
 using UAR.Domain.Northwind;
 using UAR.Persistence.Contracts;
+using UAR.UI.Contracts;
 
 namespace UAR.UI.WPF
 {
-    public class EmployeeDetailVM : IDisposable
+    public class EmployeeDetailVM : IDisposable, IAmViewModel
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;

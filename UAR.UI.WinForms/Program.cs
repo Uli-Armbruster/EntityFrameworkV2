@@ -1,12 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 using Castle.MicroKernel.Lifestyle;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using Castle.Windsor.Installer;
+
+using UAR.Infrastructure;
 
 namespace UAR.UI.WinForms
 {
@@ -18,18 +15,18 @@ namespace UAR.UI.WinForms
         [STAThread]
         static void Main()
         {
-            using (var container = new WindsorContainer())
+            using (var bootstrapper = new Bootstrapper())
             {
-                var appDomainDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                container.Install(FromAssembly.InDirectory(new AssemblyFilter(appDomainDirectory)));
+                bootstrapper.RegisterComponents().RunStartupConfiguration();
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                using (container.BeginScope())
+                using (bootstrapper.Container.BeginScope())
                 {
-                    Application.Run(container.Resolve<Form1>());
+                    Application.Run(bootstrapper.Container.Resolve<Form1>());
                 }
+
             }
         }
     }

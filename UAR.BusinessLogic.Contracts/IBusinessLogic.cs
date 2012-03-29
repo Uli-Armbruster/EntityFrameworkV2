@@ -1,4 +1,4 @@
-namespace UAR.UI.WinForms
+namespace UAR.BusinessLogic.Contracts
 {
     public interface IBusinessLogic
     {

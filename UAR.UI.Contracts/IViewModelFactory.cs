@@ -1,6 +1,6 @@
 using System;
 
-namespace UAR.UI.WPF
+namespace UAR.UI.Contracts
 {
     public interface IViewModelFactory
     {

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
+using UAR.BusinessLogic.Contracts;
 using UAR.Domain.AdventureWorks;
 using UAR.Persistence.Contracts;
 

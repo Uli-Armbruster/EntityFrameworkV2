@@ -1,11 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using System.Windows;
 
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using Castle.Windsor.Installer;
+using UAR.Infrastructure;
 
 namespace UAR.UI.WPF
 {
@@ -14,13 +10,13 @@ namespace UAR.UI.WPF
         [STAThread]
         private static void Main()
         {
-            var container = new WindsorContainer();
-            var appDomainDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            container.Install(FromAssembly.InDirectory(new AssemblyFilter(appDomainDirectory)));
-
-            var window = container.Resolve<MainWindow>();
-            var app = new Application();
-            app.Run(window);
+            using (var bootstrapper = new Bootstrapper())
+            {
+                bootstrapper.RegisterComponents().RunStartupConfiguration();
+                var window = bootstrapper.Container.Resolve<MainWindow>();
+                var app = new Application();
+                app.Run(window);
+            }
         }
     }
 }

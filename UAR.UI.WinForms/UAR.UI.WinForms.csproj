@@ -79,13 +79,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic.cs" />
     <Compile Include="AW_Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +90,6 @@
       <DependentUpon>AW_Dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogFactory.cs" />
-    <Compile Include="IBusinessLogic.cs" />
-    <Compile Include="IDialogFactory.cs" />
     <Compile Include="Installer.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -143,6 +138,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UAR.BusinessLogic.Contracts\UAR.BusinessLogic.Contracts.csproj">
+      <Project>{88EFC60D-E5C3-4EFD-A755-17D7CB5FC120}</Project>
+      <Name>UAR.BusinessLogic.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
       <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
       <Name>UAR.Domain.AdventureWorks</Name>
@@ -151,9 +150,17 @@
       <Project>{F1340169-6894-49AA-81C6-CEF4D9087805}</Project>
       <Name>UAR.Domain.Northwind</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UAR.Infrastructure\UAR.Infrastructure.csproj">
+      <Project>{87E68BE6-45CD-4B0A-A1B6-6CE98C5D6B7E}</Project>
+      <Name>UAR.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UAR.Persistence.Contracts\UAR.Persistence.Contracts.csproj">
       <Project>{1EFB2FB2-84D4-4F06-A0CE-F8056ECADE1F}</Project>
       <Name>UAR.Persistence.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UAR.UI.Contracts\UAR.UI.Contracts.csproj">
+      <Project>{6ED5E2A6-5317-45EF-97CE-2700EB223C15}</Project>
+      <Name>UAR.UI.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

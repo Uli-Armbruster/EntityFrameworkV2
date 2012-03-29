@@ -1,14 +1,13 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-using UAR.UI.Contracts;
+using UAR.BusinessLogic.Contracts;
 
-namespace UAR.UI.WinForms
+namespace UAR.BusinessLogic
 {
     public class Installer : IWindsorInstaller
     {
@@ -19,15 +18,15 @@ namespace UAR.UI.WinForms
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Components().ToArray());
+            //container.Register(Component.For<IWindsorContainer>().Instance(container));
         }
 
         private static IEnumerable<IRegistration> Components()
         {
-            
-            yield return Component.For<IDialogFactory>().ImplementedBy<DialogFactory>();
+            yield return Component
+                .For<IBusinessLogic>()
+                .ImplementedBy<BusinessLogic>().LifestyleTransient();
 
-            //Todo: Register all Form Types
-            yield return Classes.FromThisAssembly().BasedOn<Form>().WithServiceSelf().LifestyleTransient();
         }
     }
 }

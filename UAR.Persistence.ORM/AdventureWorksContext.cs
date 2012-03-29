@@ -17,9 +17,9 @@ namespace UAR.Persistence.ORM
             throw new UnintentionalCodeFirstException();
         }
 
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<AddressType> AddressTypes { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<ContactType> ContactTypes { get; set; }
+        //public DbSet<Address> Addresses { get; set; }
+        //public DbSet<AddressType> AddressTypes { get; set; }
+        //public DbSet<Contact> Contacts { get; set; }
+        //public DbSet<ContactType> ContactTypes { get; set; }
     }
 }

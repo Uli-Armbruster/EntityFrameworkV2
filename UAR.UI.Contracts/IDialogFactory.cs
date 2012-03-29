@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 
-namespace UAR.UI.WinForms
+namespace UAR.UI.Contracts
 {
     public interface IDialogFactory
     {

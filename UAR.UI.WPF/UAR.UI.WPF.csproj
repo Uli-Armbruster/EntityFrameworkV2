@@ -75,17 +75,15 @@
   <ItemGroup>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40-client\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -110,7 +108,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Installer.cs" />
-    <Compile Include="IViewModelFactory.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -144,17 +141,21 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UAR.Domain.AdventureWorks\UAR.Domain.AdventureWorks.csproj">
-      <Project>{8F74EF0E-B480-45AF-9C4E-A4F428CE48A0}</Project>
-      <Name>UAR.Domain.AdventureWorks</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UAR.Domain.Northwind\UAR.Domain.Northwind.csproj">
       <Project>{F1340169-6894-49AA-81C6-CEF4D9087805}</Project>
       <Name>UAR.Domain.Northwind</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UAR.Infrastructure\UAR.Infrastructure.csproj">
+      <Project>{87E68BE6-45CD-4B0A-A1B6-6CE98C5D6B7E}</Project>
+      <Name>UAR.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UAR.Persistence.Contracts\UAR.Persistence.Contracts.csproj">
       <Project>{1EFB2FB2-84D4-4F06-A0CE-F8056ECADE1F}</Project>
       <Name>UAR.Persistence.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UAR.UI.Contracts\UAR.UI.Contracts.csproj">
+      <Project>{6ED5E2A6-5317-45EF-97CE-2700EB223C15}</Project>
+      <Name>UAR.UI.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

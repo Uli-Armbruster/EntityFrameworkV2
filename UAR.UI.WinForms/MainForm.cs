@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 
+using UAR.UI.Contracts;
+
 namespace UAR.UI.WinForms
 {
     public partial class Form1 : Form

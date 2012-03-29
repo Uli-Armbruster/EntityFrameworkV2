@@ -3,6 +3,8 @@ using System;
 using Castle.MicroKernel.Lifestyle;
 using Castle.Windsor;
 
+using UAR.UI.Contracts;
+
 namespace UAR.UI.WPF
 {
     public class ViewModelFactory : IViewModelFactory
