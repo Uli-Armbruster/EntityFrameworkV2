@@ -27,7 +27,10 @@ namespace UAR.UI.WinForms
             yield return Component.For<IDialogFactory>().ImplementedBy<DialogFactory>();
 
             //Todo: Register all Form Types
-            yield return Classes.FromThisAssembly().BasedOn<Form>().WithServiceSelf().LifestyleTransient();
+            yield return Classes.FromThisAssembly()
+                .BasedOn<Form>()
+                .WithServiceSelf()
+                .LifestyleTransient();
         }
     }
 }

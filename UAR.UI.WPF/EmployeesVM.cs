@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace UAR.UI.WPF
 {
-    public class EmployeesVM : IDisposable, IAmViewModel
+    public class EmployeesVM : IDisposable, IAmViewModel, IAmNotTestable
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IDisposable _scope;

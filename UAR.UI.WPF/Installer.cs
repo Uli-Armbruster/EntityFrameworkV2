@@ -22,13 +22,17 @@ namespace UAR.UI.WPF
 
         private static IEnumerable<IRegistration> Components()
         {
-            yield return Component.For<IViewModelFactory>().ImplementedBy<ViewModelFactory>();
+            yield return Component
+                .For<IViewModelFactory>()
+                .ImplementedBy<ViewModelFactory>()
+                .LifestyleSingleton();
+
 
             //Todo: Register all components of ViewModels
-            yield return Classes.FromThisAssembly().BasedOn<IAmViewModel>().WithServiceSelf().LifestyleTransient();
-
-            //yield return Component.For<MainWindow>().ImplementedBy<MainWindow>().LifestyleTransient();
-            //yield return Component.For<EmployeesVM>().ImplementedBy<EmployeesVM>().LifestyleTransient();
+            yield return Classes.FromThisAssembly()
+                .BasedOn<IAmViewModel>()
+                .WithServiceSelf()
+                .LifestyleTransient();
         }
     }
 }
