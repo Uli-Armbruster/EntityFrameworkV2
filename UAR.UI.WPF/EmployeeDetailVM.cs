@@ -18,12 +18,7 @@ namespace UAR.UI.WPF
             _unitOfWork = unitOfWork;
             _scope = scope;
             _employee = employee;
-        }
-
-        public EmployeeDetailVM Initialize(Employee employee)
-        {
-            _employee = employee;
-            return this;
+            Name = string.Format("{0} {1}", employee.FirstName, employee.LastName);
         }
 
         /// <summary>

@@ -1,29 +1,33 @@
-﻿<Window x:Class="UAR.UI.WPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:UAR.UI.WPF"
-        Title="MainWindow" Height="350" Width="525"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type local:EmployeesVM}">
-            <ItemsControl ItemsSource="{Binding Path=HecoEmployees}"></ItemsControl>
-        </DataTemplate>
-    </Window.Resources>
-    <Grid>
-        <DockPanel>
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
-                <Button Click="Button_Click_Northwind">Northwind</Button>
-            </StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <DockPanel Grid.Row="0">
-                    <ContentControl DockPanel.Dock="Left" Width="300" Content="{Binding Path=EmployeesViewModel}"></ContentControl>
-                    <ContentControl Content="{Binding Path=EmployeeViewModel}"></ContentControl>
-                </DockPanel>
-            </Grid>
-        </DockPanel>
-    </Grid>
+﻿<Window x:Class="UAR.UI.WPF.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:UAR.UI.WPF" Title="MainWindow"
+        Height="350" Width="525" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+  <Window.Resources>
+    <DataTemplate DataType="{x:Type local:EmployeesVM}">
+      <ListView ItemsSource="{Binding Path=HecoEmployees}">
+        <ListView.View>
+          <GridView>
+            <GridView.Columns>
+              <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" />
+            </GridView.Columns>
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </DataTemplate>
+  </Window.Resources>
+  <Grid>
+    <DockPanel>
+      <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+        <Button Click="Button_Click_Northwind">Northwind</Button>
+      </StackPanel>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ContentControl DockPanel.Dock="Left" Width="300" Content="{Binding Path=EmployeesViewModel}"
+                        Grid.Column="0" />
+        <ContentControl Content="{Binding Path=EmployeeViewModel}" Grid.Column="1" />
+      </Grid>
+    </DockPanel>
+  </Grid>
 </Window>

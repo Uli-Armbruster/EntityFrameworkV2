@@ -22,19 +22,22 @@ namespace UAR.UI.WPF
             _unitOfWork = unitOfWork;
             _scope = scope;
             _viewModelFactory = viewModelFactory;
-
+            HecoEmployees = new ObservableCollection<EmployeeDetailVM>();
             LoadEmployees();
         }
 
         void LoadEmployees()
         {
-            var hecoEmployees = (
+            var employees = (
                 from e in _unitOfWork.Entities<Employee>()
                 where e.EmployeeID < 10
-                select _viewModelFactory.Create<EmployeeDetailVM>().Initialize(e)
+                select e
                 ).ToList();
 
-            Debug.WriteLine(hecoEmployees.Count);
+            foreach (var employee in employees)
+            {
+                HecoEmployees.Add(_viewModelFactory.Create<EmployeeDetailVM>(new {employee}));
+            }
         }
 
 
